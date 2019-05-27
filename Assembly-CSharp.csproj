@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\DefenderSpawner.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\HealthPoints.cs" />
+    <Compile Include="Assets\Scripts\Lizard.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\ProjectileShredder.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />

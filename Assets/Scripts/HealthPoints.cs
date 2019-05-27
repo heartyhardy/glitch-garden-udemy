@@ -19,7 +19,7 @@ public class HealthPoints : MonoBehaviour {
 
     public void ReduceHP(float amount)
     {
-        healthPoints -= amount;
+        healthPoints -= (amount > healthPoints) ? healthPoints : amount;
     }
 
     public void IncreaseHP(float amount)

@@ -53,6 +53,8 @@ GameObject:
   - component: {fileID: 114634168719646302}
   - component: {fileID: 95877474823858194}
   - component: {fileID: 114203847219622470}
+  - component: {fileID: 61417374880278464}
+  - component: {fileID: 114700193378029870}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
@@ -94,13 +96,38 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971200874780270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.13, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: -0.017059617, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4349529442123580}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61417374880278464
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971200874780270}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.037926316}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.97931314}
+  m_EdgeRadius: 0
 --- !u!95 &95877474823858194
 Animator:
   serializedVersion: 3
@@ -144,7 +171,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291f66a0ae7b18b4db6a5b5cbe75a7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starCost: 100
+  starCost: 50
+--- !u!114 &114700193378029870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971200874780270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116ea5237af1f574c91aea9a1346cb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 75
+  onHitVFX: {fileID: 1570531666093358, guid: c6fbd0518a996564d8e1e88891dbee4f, type: 2}
+  onDeathVFX: {fileID: 1839692974601326, guid: f883c94cf23f9804cb6a476c0343029e, type: 2}
 --- !u!212 &212619305356866002
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -182,7 +223,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300002, guid: b10f37c54183e144e8caba836e59e19b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.57, y: 1.26}

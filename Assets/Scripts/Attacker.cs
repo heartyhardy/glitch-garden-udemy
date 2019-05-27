@@ -6,11 +6,22 @@ using UnityEngine;
 public class Attacker : MonoBehaviour {
 
     float movementSpeed = 1f;
-	
+    GameObject currentTarget;
+
 	// Update is called once per frame
 	void Update () {
         transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+        UpdateAttackState();
 	}
+
+    private void UpdateAttackState()
+    {
+        if (!currentTarget)
+        {
+            Animator animator = GetComponent<Animator>();
+            animator.SetBool("IsAttacking", false);
+        }
+    }
 
     public void SetMovementSpeed(float speed)
     {
@@ -66,5 +77,33 @@ public class Attacker : MonoBehaviour {
             projectile.gameObject.transform.rotation
         );
         Destroy(onHit, .5f);
+    }
+
+    public void Attack(GameObject target)
+    {
+        Animator animator = GetComponent<Animator>();
+        animator.SetBool("IsAttacking", true);
+
+        currentTarget = target;
+    }
+
+    public void StrikeTarget(float damage)
+    {
+        if (currentTarget)
+        {
+            Defender defender = currentTarget.GetComponent<Defender>();
+            HealthPoints hp = currentTarget.GetComponent<HealthPoints>();
+
+            if (hp)
+            {
+                hp.ReduceHP(damage);
+                defender.Damaged(hp);
+
+                if(hp.getCurrentHP() <= 0)
+                {
+                    defender.Die(hp);
+                }
+            }
+        }
     }
 }

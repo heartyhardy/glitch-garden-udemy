@@ -9,13 +9,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Attacker enemy;
 
     [Header("Spawn Cooldown")]
-    [SerializeField] [Range(1f, 2.5f)] float spawnCDMin = 1f;
-    [SerializeField] [Range(2.5f, 5f)] float spawnCDMax = 2.5f;
+    [SerializeField] [Range(1f, 5f)] float spawnCDMin = 2.5f;
+    [SerializeField] [Range(5f, 30f)] float spawnCDMax = 5f;
 
-    private bool isSpawning = true;
+    [SerializeField] bool isSpawning = false;
+
+    [Header("Spawn Delay")]
+    [SerializeField][Range(5f, 360f)] float initialDelay = 10f;
+
+    bool isDelayed = true;
 
     // Use this for initialization
     IEnumerator Start()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        isDelayed = false;
+        StartCoroutine(WaitAndSpawn());
+    }
+
+    IEnumerator WaitAndSpawn()
     {
         while (isSpawning)
         {
@@ -26,11 +38,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Instantiate(
+        Attacker attacker = Instantiate(
             enemy,
             transform.position,
             transform.rotation
         );
+
+        attacker.transform.parent = transform;
     }
 
     // Update is called once per frame
