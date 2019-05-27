@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
 
     [Header("Spawn attributes")]
-    [SerializeField] Attacker enemy;
+    [SerializeField] Attacker[] enemies;
 
     [Header("Spawn Cooldown")]
     [SerializeField] [Range(1f, 5f)] float spawnCDMin = 2.5f;
@@ -38,18 +38,15 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        int selectedEnemy = Random.Range(0, enemies.Length - 1);
+        Debug.Log(enemies.Length);
+
         Attacker attacker = Instantiate(
-            enemy,
+            enemies[selectedEnemy],
             transform.position,
             transform.rotation
         );
 
         attacker.transform.parent = transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

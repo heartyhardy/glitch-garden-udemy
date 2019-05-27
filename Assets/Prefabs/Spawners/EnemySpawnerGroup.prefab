@@ -59,6 +59,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1472139358137022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4836619846975860}
+  - component: {fileID: 114339755573135756}
+  m_Layer: 0
+  m_Name: Spawner-4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1669936371133158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4649643166308538}
+  - component: {fileID: 114546999608997434}
+  m_Layer: 0
+  m_Name: Spawner-5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1701443050770848
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +132,19 @@ Transform:
   m_Father: {fileID: 4837428383933618}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4649643166308538
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669936371133158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.5, y: -1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4837428383933618}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4792454769033978
 Transform:
   m_ObjectHideFlags: 1
@@ -112,6 +157,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4837428383933618}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4836619846975860
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1472139358137022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4837428383933618}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4837428383933618
 Transform:
@@ -126,6 +184,8 @@ Transform:
   - {fileID: 4232834950650374}
   - {fileID: 4792454769033978}
   - {fileID: 4528822460267284}
+  - {fileID: 4836619846975860}
+  - {fileID: 4649643166308538}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -140,10 +200,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21040eab998180e44a800badb1d8aad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 114399178158918196, guid: dc5ec92fa66ffb6469b64e4653a9bf71, type: 2}
-  spawnCDMin: 1.5
-  spawnCDMax: 3.5
+  enemies: []
+  spawnCDMin: 2.5
+  spawnCDMax: 10
   isSpawning: 1
+  initialDelay: 10
+--- !u!114 &114339755573135756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1472139358137022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21040eab998180e44a800badb1d8aad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  spawnCDMin: 3
+  spawnCDMax: 10
+  isSpawning: 1
+  initialDelay: 10
+--- !u!114 &114546999608997434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669936371133158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21040eab998180e44a800badb1d8aad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  spawnCDMin: 1.5
+  spawnCDMax: 5
+  isSpawning: 1
+  initialDelay: 10
 --- !u!114 &114579696182437540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,10 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21040eab998180e44a800badb1d8aad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 114399178158918196, guid: dc5ec92fa66ffb6469b64e4653a9bf71, type: 2}
-  spawnCDMin: 1.5
-  spawnCDMax: 3.5
+  enemies: []
+  spawnCDMin: 2.5
+  spawnCDMax: 7.5
   isSpawning: 1
+  initialDelay: 10
 --- !u!114 &114754227700198210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,7 +264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21040eab998180e44a800badb1d8aad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 114399178158918196, guid: dc5ec92fa66ffb6469b64e4653a9bf71, type: 2}
-  spawnCDMin: 1.5
-  spawnCDMax: 3.5
+  enemies:
+  - {fileID: 114399178158918196, guid: dc5ec92fa66ffb6469b64e4653a9bf71, type: 2}
+  - {fileID: 114725947531382654, guid: 6e6692907b88a3d48ac9d01a409f7b2e, type: 2}
+  spawnCDMin: 1
+  spawnCDMax: 5
   isSpawning: 1
+  initialDelay: 10
