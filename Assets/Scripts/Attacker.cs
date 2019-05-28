@@ -8,8 +8,18 @@ public class Attacker : MonoBehaviour {
     float movementSpeed = 1f;
     GameObject currentTarget;
 
-	// Update is called once per frame
-	void Update () {
+    private void Awake()
+    {
+        FindObjectOfType<LevelController>().AttackerSpawned();
+    }
+
+    private void OnDestroy()
+    {
+        FindObjectOfType<LevelController>().AttackerDestroyed();
+    }
+
+    // Update is called once per frame
+    void Update () {
         transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
         UpdateAttackState();
 	}

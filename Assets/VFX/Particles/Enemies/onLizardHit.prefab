@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198452631985811920}
   - component: {fileID: 199784792271933570}
   m_Layer: 0
-  m_Name: OnHitVFX
+  m_Name: onLizardHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

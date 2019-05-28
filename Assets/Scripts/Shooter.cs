@@ -61,5 +61,6 @@ public class Shooter : MonoBehaviour {
                 weaponHand.transform.position,
                 Quaternion.identity
             );
+        projectileInstance.transform.parent = transform;
     }
 }

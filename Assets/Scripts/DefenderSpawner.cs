@@ -27,6 +27,7 @@ public class DefenderSpawner : MonoBehaviour {
                 worldpos,
                 Quaternion.identity
             );
+        newDefender.transform.parent = transform;
     }
 
     private void AttemptToPlaceDefenderAt(Vector2 worldpos)

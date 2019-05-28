@@ -36,10 +36,14 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void ShutdownSpawner()
+    {
+        isSpawning = false;
+    }
+
     private void SpawnEnemy()
     {
         int selectedEnemy = Random.Range(0, enemies.Length - 1);
-        Debug.Log(enemies.Length);
 
         Attacker attacker = Instantiate(
             enemies[selectedEnemy],
